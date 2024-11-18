@@ -2,8 +2,10 @@
 
 ## Create a new bridge interface
 ```bash
-sudo ip link add br0 type bridge -- Creates a new bridge interface with name 'br0'. Create the same number of bridge interfaces as physical intefaces available on the server. 
+sudo ip link add br0 type bridge  
 ```
+This creates a new bridge interface with name 'br0'. Create the same number of bridge interfaces as physical intefaces available on the server.
+
 ## Create /etc/netplan/01-kvmbridge.yaml
 ```yaml
 network:
@@ -25,4 +27,4 @@ Add your physical interface name in the place of `interface_name`.
 ## Save this file and follow the below to link the physical and bridge interface.
 1. Run `sudo netplan try` to check for errors and format of the file.
 2. Resolve errors if any.
-3. Run `sudo netplan apply` to apply the settings and reboot the server. > You will need physical access to the machine as this applying the settings will disconnect the SSH session. 
+3. Run `sudo netplan apply` to apply the settings and reboot the server. ***You will need physical access to the machine as this applying the settings will disconnect the SSH session.*** 
